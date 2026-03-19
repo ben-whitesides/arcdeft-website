@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft — Creative Intelligence for Builders</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111114;
+  --card: #161619;
+  --teal: #00d4aa;
+  --blue: #00b4dc;
+  --white: #f0f0f0;
+  --gray: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--blue); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; max-width: 1200px; margin: 0 auto; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); letter-spacing: 4px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+
+/* Hero */
+.hero { text-align: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(var(--teal), transparent); }
+.hero h1 { font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+.cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 14px 32px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.2s; cursor: pointer; }
+.btn-primary { background: var(--teal); color: var(--black); border: none; }
+.btn-primary:hover { background: var(--blue); color: var(--black); }
+.btn-outline { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--black); }
+
+/* Section */
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.section p.desc { font-size: 18px; color: var(--gray); max-width: 700px; margin-bottom: 48px; font-weight: 300; }
+
+/* Services Grid */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.service-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 32px; transition: transform 0.2s, border-color 0.2s; }
+.service-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.service-name { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.service-price { font-size: 14px; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+.service-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* Books */
+.books-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.book-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 40px 32px; text-align: center; }
+.book-tier { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.book-title { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.book-sub { font-size: 14px; color: var(--gray); margin-bottom: 20px; }
+.book-price { font-size: 28px; font-weight: 700; color: var(--teal); margin-bottom: 20px; }
+.book-features { list-style: none; text-align: left; font-size: 13px; color: var(--gray); }
+.book-features li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.book-features li::before { content: '→ '; color: var(--teal); }
+
+/* Divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.3), transparent); max-width: 800px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 40px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--teal); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .books-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  nav { padding: 20px 24px; }
+  .section { padding: 60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ARCDEFT</div>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="books.html">Books</a>
+    <a href="tools.html">Tools</a>
+    <a href="share.html">Earn</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Creative Intelligence<br>for <span>Builders Who Ship</span></h1>
+  <p>We build, run, and scale your digital business using AI. Pick one service or take the full stack. Either way, you ship faster.</p>
+  <div class="cta-row">
+    <a href="#services" class="btn btn-primary">View Services</a>
+    <a href="#books" class="btn btn-outline">Get the Playbook</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="services">
+  <div class="section-label">What We Build</div>
+  <h2>The Arcdeft Service Suite</h2>
+  <p class="desc">Pick what you need. Every service stands alone. Best results come from the full stack — but we don't force bundles. You choose.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-name">Shopify Store Build</div>
+      <div class="service-price">$2,497 — $9,997</div>
+      <div class="service-desc">Premium theme, product listings, collections, checkout, SEO, mobile optimized. 7-10 days to launch.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">AI Content Engine</div>
+      <div class="service-price">$997/mo</div>
+      <div class="service-desc">Product copy, email flows, social posts — all calibrated to your brand voice. AI-powered, human-reviewed.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Managed Ecommerce</div>
+      <div class="service-price">$1,497 — $4,997/mo</div>
+      <div class="service-desc">We run your store. 5 AI agents monitoring inventory, analytics, optimization, content, and competitive intel. 24/7.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Social Media Marketing</div>
+      <div class="service-price">$797/mo</div>
+      <div class="service-desc">Influencer engine distribution. Content across 5+ platforms. Your brand, amplified. 10 minutes from you. We handle the rest.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Brand Voice Setup</div>
+      <div class="service-price">$1,497 one-time</div>
+      <div class="service-desc">The Rejection Flywheel. We train AI on your voice through systematic rejection. Every "no" makes it sharper. Your taste becomes the moat.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Digital Product Launch</div>
+      <div class="service-price">$997 one-time</div>
+      <div class="service-desc">KDP + Gumroad setup. Cover design, listing copy, pricing strategy, launch sequence. Your first digital product, live in 7 days.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Lead Gen + Email Campaigns</div>
+      <div class="service-price">$1,497 one-time</div>
+      <div class="service-desc">Targeted lead scraping, email template A/B testing, CAN-SPAM compliant outreach. 5 alias rotation. Your pipeline, built.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Product Photography Direction</div>
+      <div class="service-price">$497 one-time</div>
+      <div class="service-desc">Shot list, styling direction, platform-specific formatting. Your products looking premium without the agency price tag.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="books">
+  <div class="section-label">The Playbook Series</div>
+  <h2>Three Books. Three Speeds.</h2>
+  <p class="desc">Same system, different throttle. Pick where you are. Each book stands alone. Together they build the full engine.</p>
+
+  <div class="books-row">
+    <div class="book-card">
+      <div class="book-tier">Book One</div>
+      <div class="book-title">Weekend Money</div>
+      <div class="book-sub">5 hours a week. Your first $500/mo.</div>
+      <div class="book-price">$4.99</div>
+      <ul class="book-features">
+        <li>Pick your money topic in 1 hour</li>
+        <li>Build a $29 product in a weekend</li>
+        <li>10-minute daily content habit</li>
+        <li>Gumroad setup in 20 minutes</li>
+        <li>$500/mo in 90 days</li>
+      </ul>
+    </div>
+    <div class="book-card" style="border-color: var(--teal);">
+      <div class="book-tier">Book Two</div>
+      <div class="book-title">Replace Your Job</div>
+      <div class="book-sub">2-3 hours a day. $1K-$5K/mo.</div>
+      <div class="book-price">$9.99</div>
+      <ul class="book-features">
+        <li>Full Content Engine Model</li>
+        <li>The Rejection Flywheel</li>
+        <li>52-Minute Production Block</li>
+        <li>Multi-product + dual-platform</li>
+        <li>Match your salary in 6 months</li>
+      </ul>
+    </div>
+    <div class="book-card">
+      <div class="book-tier">Book Three</div>
+      <div class="book-title">Unlimited</div>
+      <div class="book-sub">Full throttle. $10K+/mo.</div>
+      <div class="book-price">$14.99</div>
+      <ul class="book-features">
+        <li>5-agent AI content fleet</li>
+        <li>Product ladder to $297/mo</li>
+        <li>Automation at scale</li>
+        <li>Sell your system as a service</li>
+        <li>Location independent empire</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" style="text-align: center;">
+  <div class="section-label">Earn While You Create</div>
+  <h2>The VAI Affiliate Program</h2>
+  <p class="desc" style="margin-left: auto; margin-right: auto;">Every Arcdeft creator gets a VAI share link. 25% recurring commissions. 5 levels deep. Your audience earns you money while you sleep.</p>
+  <a href="https://vai.app/share" class="btn btn-primary" target="_blank">See the Calculator</a>
+</div>
+
+<footer>
+  <p>Arcdeft Collective &nbsp;|&nbsp; <a href="https://x.com/arcdeft" target="_blank">@arcdeft</a> &nbsp;|&nbsp; <a href="https://vai.app" target="_blank">vai.app</a></p>
+  <p style="margin-top: 8px;">Creative intelligence for builders who ship product.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft — Earn With VAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111114;
+  --card: #161619;
+  --teal: #00d4aa;
+  --blue: #00b4dc;
+  --white: #f0f0f0;
+  --gray: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--blue); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; max-width: 1200px; margin: 0 auto; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); letter-spacing: 4px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+
+/* Hero */
+.hero { text-align: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(var(--teal), transparent); }
+.hero h1 { font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+.btn { display: inline-block; padding: 14px 32px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.2s; cursor: pointer; }
+.btn-primary { background: var(--teal); color: var(--black); border: none; }
+.btn-primary:hover { background: var(--blue); color: var(--black); }
+.btn-outline { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--black); }
+
+/* Section */
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.section p.desc { font-size: 18px; color: var(--gray); max-width: 700px; margin-bottom: 48px; font-weight: 300; }
+
+/* Steps */
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.step-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 32px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+.step-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.step-number { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; color: var(--teal); margin-bottom: 16px; line-height: 1; }
+.step-title { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.step-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+/* Commission Table */
+.commission-section { text-align: center; }
+.commission-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 48px; }
+.commission-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 24px 16px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+.commission-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.commission-card:first-child { border-color: var(--teal); }
+.commission-level { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+.commission-pct { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
+.commission-label { font-size: 12px; color: var(--muted); }
+
+/* Math Example */
+.math-card { background: var(--card); border: 2px solid var(--teal); border-radius: 8px; padding: 48px; max-width: 800px; margin: 0 auto; }
+.math-title { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 24px; text-align: center; }
+.math-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 15px; }
+.math-row:last-child { border-bottom: none; }
+.math-row .label { color: var(--gray); }
+.math-row .value { font-weight: 600; color: var(--white); }
+.math-row.total { border-top: 2px solid var(--teal); margin-top: 8px; padding-top: 16px; }
+.math-row.total .label { color: var(--white); font-weight: 600; font-size: 18px; }
+.math-row.total .value { color: var(--teal); font-size: 24px; font-weight: 700; }
+.math-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: 16px; }
+
+/* CTA Section */
+.cta-section { text-align: center; padding: 80px 40px; }
+.cta-section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 16px; }
+.cta-section p { font-size: 18px; color: var(--gray); max-width: 500px; margin: 0 auto 32px; font-weight: 300; }
+.cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.3), transparent); max-width: 800px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 40px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--teal); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .commission-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav-links { display: none; }
+  nav { padding: 20px 24px; }
+  .section { padding: 60px 24px; }
+  .math-card { padding: 32px 24px; }
+  .math-row { font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .commission-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">ARCDEFT</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="books.html">Books</a>
+    <a href="tools.html">Tools</a>
+    <a href="share.html" class="active">Earn</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Share VAI.<br><span>Earn Recurring.</span></h1>
+  <p>Every Arcdeft creator gets a VAI share link. 25% recurring commissions on Level 1. 5 levels deep. Your audience earns you money while you sleep.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">How It Works</div>
+  <h2>4 Steps to Recurring Revenue</h2>
+  <p class="desc">No inventory. No customer support. No upfront cost. Share your link, people subscribe, you get paid every month.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-title">Get Your Link</div>
+      <div class="step-desc">Sign up for VAI (free). Your share link is vai.app/share/YOURHANDLE. That's your money URL.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <div class="step-title">Share It</div>
+      <div class="step-desc">Post it. Text it. Put it in your bio. Your referrals get 50% off VAI for life. Easy sell.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <div class="step-title">They Subscribe</div>
+      <div class="step-desc">When someone subscribes through your link, you earn recurring commissions. Every month they stay, you get paid.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">4</div>
+      <div class="step-title">It Compounds</div>
+      <div class="step-desc">Your referrals share too. You earn on 5 levels. The network grows. Your income compounds without extra work.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section commission-section">
+  <div class="section-label">Commission Structure</div>
+  <h2>5 Levels Deep</h2>
+  <p class="desc" style="margin-left: auto; margin-right: auto;">You earn on everyone you refer — and everyone they refer, down 5 levels. Recurring. Every month.</p>
+
+  <div class="commission-grid">
+    <div class="commission-card">
+      <div class="commission-level">Level 1</div>
+      <div class="commission-pct">25%</div>
+      <div class="commission-label">Your direct referrals</div>
+    </div>
+    <div class="commission-card">
+      <div class="commission-level">Level 2</div>
+      <div class="commission-pct">10%</div>
+      <div class="commission-label">Their referrals</div>
+    </div>
+    <div class="commission-card">
+      <div class="commission-level">Level 3</div>
+      <div class="commission-pct">5%</div>
+      <div class="commission-label">3rd generation</div>
+    </div>
+    <div class="commission-card">
+      <div class="commission-level">Level 4</div>
+      <div class="commission-pct">3%</div>
+      <div class="commission-label">4th generation</div>
+    </div>
+    <div class="commission-card">
+      <div class="commission-level">Level 5</div>
+      <div class="commission-pct">2%</div>
+      <div class="commission-label">5th generation</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">The Math</div>
+  <h2>10 Referrals. Real Numbers.</h2>
+  <p class="desc">Here's what happens when you refer 10 people to VAI Plus ($9.95/mo effective price) and each of them refers just 3 more.</p>
+
+  <div class="math-card">
+    <div class="math-title">Monthly Earnings Breakdown</div>
+    <div class="math-row">
+      <span class="label">Level 1 — 10 direct referrals x $9.95 x 25%</span>
+      <span class="value">$24.88</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Level 2 — 30 referrals (10 x 3) x $9.95 x 10%</span>
+      <span class="value">$29.85</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Level 3 — 90 referrals (30 x 3) x $9.95 x 5%</span>
+      <span class="value">$44.78</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Level 4 — 270 referrals (90 x 3) x $9.95 x 3%</span>
+      <span class="value">$80.60</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Level 5 — 810 referrals (270 x 3) x $9.95 x 2%</span>
+      <span class="value">$161.19</span>
+    </div>
+    <div class="math-row total">
+      <span class="label">Total Monthly Recurring</span>
+      <span class="value">$341.30/mo</span>
+    </div>
+    <p class="math-note">From 10 personal referrals. Recurring every month. Grows as the network grows.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="cta-section">
+  <h2>Start Earning Today</h2>
+  <p>Free to join. Free to share. Your link is ready the moment you sign up.</p>
+  <div class="cta-row">
+    <a href="https://vai.app/share" class="btn btn-primary" target="_blank">Get Your Share Link</a>
+    <a href="https://vai.app" class="btn btn-outline" target="_blank">Learn About VAI</a>
+  </div>
+</div>
+
+<footer>
+  <p>Arcdeft Collective &nbsp;|&nbsp; <a href="https://x.com/arcdeft" target="_blank">@arcdeft</a> &nbsp;|&nbsp; <a href="https://vai.app" target="_blank">vai.app</a></p>
+  <p style="margin-top: 8px;">Creative intelligence for builders who ship product.</p>
+</footer>
+
+</body>
+</html>

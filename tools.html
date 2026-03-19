@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft — Tools We Actually Use</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111114;
+  --card: #161619;
+  --teal: #00d4aa;
+  --blue: #00b4dc;
+  --white: #f0f0f0;
+  --gray: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--blue); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; max-width: 1200px; margin: 0 auto; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); letter-spacing: 4px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+
+/* Hero */
+.hero { text-align: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(var(--teal), transparent); }
+.hero h1 { font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+
+/* Section */
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.section p.desc { font-size: 18px; color: var(--gray); max-width: 700px; margin-bottom: 48px; font-weight: 300; }
+
+/* Tool Category */
+.tool-category { margin-bottom: 64px; }
+.tool-category:last-child { margin-bottom: 0; }
+.category-header { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.category-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+
+/* Tool Grid */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.tool-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 28px; transition: transform 0.2s, border-color 0.2s; }
+.tool-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.tool-name { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.tool-price { font-size: 13px; color: var(--teal); font-weight: 600; margin-bottom: 10px; }
+.tool-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.tool-pick { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; background: rgba(0,212,170,0.15); color: var(--teal); padding: 3px 8px; border-radius: 3px; margin-bottom: 12px; }
+
+/* Update Notice */
+.update-notice { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 32px; text-align: center; margin-top: 48px; }
+.update-notice p { font-size: 14px; color: var(--gray); }
+.update-notice strong { color: var(--white); }
+
+/* Divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.3), transparent); max-width: 800px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 40px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--teal); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .nav-links { display: none; }
+  nav { padding: 20px 24px; }
+  .section { padding: 60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">ARCDEFT</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="books.html">Books</a>
+    <a href="tools.html" class="active">Tools</a>
+    <a href="share.html">Earn</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>The Tools We<br><span>Actually Use</span></h1>
+  <p>No affiliate bloat. No filler. These are the exact tools in our production stack right now. Updated monthly.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">Our Stack</div>
+  <h2>5 Categories. Zero Fluff.</h2>
+  <p class="desc">Every tool here earns its spot by being used daily in real production. If we stop using it, it comes off the list.</p>
+
+  <!-- Writing -->
+  <div class="tool-category">
+    <div class="category-header">Writing</div>
+    <div class="category-sub">Content creation, copywriting, and long-form production.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-pick">Top Pick</div>
+        <div class="tool-name">Claude</div>
+        <div class="tool-price">Free / Pro $20/mo / Max $100/mo</div>
+        <div class="tool-desc">Primary writing engine. Long-form content, email sequences, product descriptions, brand voice calibration. Powers the entire Content Engine Model.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Google Docs</div>
+        <div class="tool-price">Free (Google Workspace $7/mo)</div>
+        <div class="tool-desc">Draft staging, collaboration, client deliverables. Real-time editing. Where everything gets polished before publishing.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Hemingway Editor</div>
+        <div class="tool-price">Free (web) / $19.99 (desktop)</div>
+        <div class="tool-desc">Readability scoring. Keeps copy tight, grade-level appropriate. Run everything through it before publishing.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual -->
+  <div class="tool-category">
+    <div class="category-header">Visual</div>
+    <div class="category-sub">Design, image generation, and visual content production.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-pick">Top Pick</div>
+        <div class="tool-name">Canva</div>
+        <div class="tool-price">Free / Pro $13/mo</div>
+        <div class="tool-desc">Social graphics, thumbnails, book covers, presentation decks. Template library saves hours. Brand kit keeps everything consistent.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Midjourney</div>
+        <div class="tool-price">$10/mo — $60/mo</div>
+        <div class="tool-desc">AI image generation for product mockups, social content, and brand imagery. Best quality-to-effort ratio in the market.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Figma</div>
+        <div class="tool-price">Free / Pro $15/mo</div>
+        <div class="tool-desc">UI design, wireframes, landing page mockups. Collaborative design when working with contractors or clients.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scheduling -->
+  <div class="tool-category">
+    <div class="category-header">Scheduling</div>
+    <div class="category-sub">Content distribution, social media management, and automation.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-pick">Top Pick</div>
+        <div class="tool-name">Postiz</div>
+        <div class="tool-price">Free (self-hosted) / Cloud from $10/mo</div>
+        <div class="tool-desc">Open-source social media scheduling. 7+ platforms from one dashboard. API access for automation. Our primary distribution engine.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Later</div>
+        <div class="tool-price">Free / $25/mo</div>
+        <div class="tool-desc">Visual content calendar. Instagram-first but handles all platforms. Best-in-class preview and planning grid.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Calendly</div>
+        <div class="tool-price">Free / $12/mo</div>
+        <div class="tool-desc">Client scheduling, discovery calls, onboarding meetings. Eliminates the back-and-forth. Integrates with Google Calendar.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analytics -->
+  <div class="tool-category">
+    <div class="category-header">Analytics</div>
+    <div class="category-sub">Performance tracking, conversion data, and business intelligence.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-pick">Top Pick</div>
+        <div class="tool-name">Google Analytics</div>
+        <div class="tool-price">Free</div>
+        <div class="tool-desc">Website traffic, conversion tracking, audience demographics. The baseline. Everything else layers on top of GA data.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Shopify Analytics</div>
+        <div class="tool-price">Included with Shopify ($39/mo+)</div>
+        <div class="tool-desc">Sales, conversion rates, average order value, customer lifetime value. Native ecommerce intelligence. Real-time revenue tracking.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Gumroad Analytics</div>
+        <div class="tool-price">Free (10% per sale)</div>
+        <div class="tool-desc">Digital product sales tracking, email capture, customer geography. Simple and effective for digital creators.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="tool-category">
+    <div class="category-header">Email</div>
+    <div class="category-sub">Outreach, list building, drip campaigns, and deliverability.</div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-pick">Top Pick</div>
+        <div class="tool-name">Saleshandy</div>
+        <div class="tool-price">$36/mo — $219/mo</div>
+        <div class="tool-desc">Cold email at scale. Multi-alias rotation, warm-up built in, A/B testing, reply tracking. The outreach workhorse for lead gen campaigns.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">ConvertKit</div>
+        <div class="tool-price">Free (1K subs) / $29/mo+</div>
+        <div class="tool-desc">Creator-focused email marketing. Visual automations, landing pages, subscriber tagging. Best for newsletter and audience building.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Gmail + Google Workspace</div>
+        <div class="tool-price">$7/mo per user</div>
+        <div class="tool-desc">Professional email, custom domain, full Google suite integration. The backbone of all business communication.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-notice">
+    <p><strong>This list changes.</strong> We update it monthly based on what's actually in our production stack. Tools earn their spot by getting used daily. If we drop one, it comes off. Last updated: March 2026.</p>
+  </div>
+</div>
+
+<footer>
+  <p>Arcdeft Collective &nbsp;|&nbsp; <a href="https://x.com/arcdeft" target="_blank">@arcdeft</a> &nbsp;|&nbsp; <a href="https://vai.app" target="_blank">vai.app</a></p>
+  <p style="margin-top: 8px;">Creative intelligence for builders who ship product.</p>
+</footer>
+
+</body>
+</html>

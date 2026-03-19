@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft — Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111114;
+  --card: #161619;
+  --teal: #00d4aa;
+  --blue: #00b4dc;
+  --white: #f0f0f0;
+  --gray: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--blue); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; max-width: 1200px; margin: 0 auto; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); letter-spacing: 4px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+
+/* Hero */
+.hero { text-align: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(var(--teal), transparent); }
+.hero h1 { font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+
+/* Section */
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.section p.desc { font-size: 18px; color: var(--gray); max-width: 700px; margin-bottom: 48px; font-weight: 300; }
+
+/* Services Grid */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.service-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 32px; transition: transform 0.2s, border-color 0.2s; }
+.service-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.service-name { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.service-price { font-size: 14px; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+.service-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+.service-includes { list-style: none; margin-top: 16px; font-size: 13px; color: var(--gray); }
+.service-includes li { padding: 4px 0; }
+.service-includes li::before { content: '+ '; color: var(--teal); font-weight: 600; }
+
+/* Bundle */
+.bundle-card { background: var(--card); border: 2px solid var(--teal); border-radius: 8px; padding: 48px; margin-top: 48px; text-align: center; }
+.bundle-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; background: var(--teal); color: var(--black); padding: 6px 16px; border-radius: 4px; margin-bottom: 24px; }
+.bundle-title { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+.bundle-price { font-size: 32px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+.bundle-savings { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+.bundle-desc { font-size: 16px; color: var(--gray); max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+.btn { display: inline-block; padding: 14px 32px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.2s; cursor: pointer; }
+.btn-primary { background: var(--teal); color: var(--black); border: none; }
+.btn-primary:hover { background: var(--blue); color: var(--black); }
+
+/* Divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.3), transparent); max-width: 800px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 40px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--teal); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .nav-links { display: none; }
+  nav { padding: 20px 24px; }
+  .section { padding: 60px 24px; }
+  .bundle-card { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">ARCDEFT</a>
+  <div class="nav-links">
+    <a href="services.html" class="active">Services</a>
+    <a href="books.html">Books</a>
+    <a href="tools.html">Tools</a>
+    <a href="share.html">Earn</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Build It. <span>Ship It.</span><br>We Handle the Rest.</h1>
+  <p>Eight a la carte services. Pick one or take the full stack. No contracts. No minimums. You choose what you need.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">A La Carte</div>
+  <h2>The Arcdeft Service Suite</h2>
+  <p class="desc">Every service stands alone. Best results come from the full stack — but we don't force bundles. You choose.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-name">Shopify Store Build</div>
+      <div class="service-price">$2,497 — $9,997</div>
+      <div class="service-desc">Premium theme, product listings, collections, checkout, SEO, mobile optimized. 7-10 days to launch.</div>
+      <ul class="service-includes">
+        <li>Custom theme selection + configuration</li>
+        <li>Up to 50 product listings</li>
+        <li>Payment + shipping setup</li>
+        <li>SEO foundation + analytics</li>
+        <li>Mobile-first responsive design</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">AI Content Engine</div>
+      <div class="service-price">$997/mo</div>
+      <div class="service-desc">Product copy, email flows, social posts — all calibrated to your brand voice. AI-powered, human-reviewed.</div>
+      <ul class="service-includes">
+        <li>Brand voice training via Rejection Flywheel</li>
+        <li>Weekly content batches (20+ pieces)</li>
+        <li>Email sequences + automation</li>
+        <li>Multi-platform social content</li>
+        <li>Monthly performance review</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Managed Ecommerce</div>
+      <div class="service-price">$1,497 — $4,997/mo</div>
+      <div class="service-desc">We run your store. 5 AI agents monitoring inventory, analytics, optimization, content, and competitive intel. 24/7.</div>
+      <ul class="service-includes">
+        <li>Inventory + fulfillment management</li>
+        <li>Daily analytics monitoring</li>
+        <li>Conversion rate optimization</li>
+        <li>Competitive intelligence reports</li>
+        <li>AI-driven pricing adjustments</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Social Media Marketing</div>
+      <div class="service-price">$797/mo</div>
+      <div class="service-desc">Influencer engine distribution. Content across 5+ platforms. Your brand, amplified. 10 minutes from you. We handle the rest.</div>
+      <ul class="service-includes">
+        <li>5+ platform distribution</li>
+        <li>Content calendar + scheduling</li>
+        <li>Hashtag + trend research</li>
+        <li>Engagement monitoring</li>
+        <li>Monthly analytics report</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Brand Voice Setup</div>
+      <div class="service-price">$1,497 one-time</div>
+      <div class="service-desc">The Rejection Flywheel. We train AI on your voice through systematic rejection. Every "no" makes it sharper. Your taste becomes the moat.</div>
+      <ul class="service-includes">
+        <li>Voice interview + analysis</li>
+        <li>Rejection Flywheel calibration</li>
+        <li>Style guide deliverable</li>
+        <li>AI prompt library (your voice)</li>
+        <li>3 rounds of refinement</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Digital Product Launch</div>
+      <div class="service-price">$997 one-time</div>
+      <div class="service-desc">KDP + Gumroad setup. Cover design, listing copy, pricing strategy, launch sequence. Your first digital product, live in 7 days.</div>
+      <ul class="service-includes">
+        <li>Product packaging + cover design</li>
+        <li>Platform setup (KDP / Gumroad)</li>
+        <li>Listing copy + SEO optimization</li>
+        <li>Pricing strategy + launch plan</li>
+        <li>7-day launch sequence</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Lead Gen + Email Campaigns</div>
+      <div class="service-price">$1,497 one-time</div>
+      <div class="service-desc">Targeted lead scraping, email template A/B testing, CAN-SPAM compliant outreach. 5 alias rotation. Your pipeline, built.</div>
+      <ul class="service-includes">
+        <li>Targeted lead list (1,000+)</li>
+        <li>3-email drip sequence</li>
+        <li>A/B tested subject lines</li>
+        <li>CAN-SPAM compliant setup</li>
+        <li>5 sending alias rotation</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Product Photography Direction</div>
+      <div class="service-price">$497 one-time</div>
+      <div class="service-desc">Shot list, styling direction, platform-specific formatting. Your products looking premium without the agency price tag.</div>
+      <ul class="service-includes">
+        <li>Custom shot list (20+ shots)</li>
+        <li>Styling + composition guide</li>
+        <li>Platform-specific crop templates</li>
+        <li>Lighting + backdrop specs</li>
+        <li>Post-production direction</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bundle-card">
+    <div class="bundle-badge">Best Value</div>
+    <div class="bundle-title">The Full Suite</div>
+    <div class="bundle-price">$4,997/mo + $2,497 setup</div>
+    <div class="bundle-savings">Save over $3,000/mo vs. buying a la carte</div>
+    <div class="bundle-desc">Every service. One monthly rate. Store build, content engine, managed ecommerce, social, brand voice, product launch, lead gen, and photo direction. The entire Arcdeft stack working together.</div>
+    <a href="mailto:hello@arcdeft.com?subject=Full Suite Inquiry" class="btn btn-primary">Get Started</a>
+  </div>
+</div>
+
+<footer>
+  <p>Arcdeft Collective &nbsp;|&nbsp; <a href="https://x.com/arcdeft" target="_blank">@arcdeft</a> &nbsp;|&nbsp; <a href="https://vai.app" target="_blank">vai.app</a></p>
+  <p style="margin-top: 8px;">Creative intelligence for builders who ship product.</p>
+</footer>
+
+</body>
+</html>

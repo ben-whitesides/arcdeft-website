@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft — The Playbook Series</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111114;
+  --card: #161619;
+  --teal: #00d4aa;
+  --blue: #00b4dc;
+  --white: #f0f0f0;
+  --gray: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--blue); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; max-width: 1200px; margin: 0 auto; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); letter-spacing: 4px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+
+/* Hero */
+.hero { text-align: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(var(--teal), transparent); }
+.hero h1 { font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+
+/* Section */
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.section h2 { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.section p.desc { font-size: 18px; color: var(--gray); max-width: 700px; margin-bottom: 48px; font-weight: 300; }
+
+/* Books */
+.books-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.book-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 40px 32px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.book-card.featured { border-color: var(--teal); }
+.book-tier { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.book-title { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.book-sub { font-size: 14px; color: var(--gray); margin-bottom: 8px; }
+.book-tagline { font-size: 13px; color: var(--white); font-weight: 500; font-style: italic; margin-bottom: 20px; }
+.book-price { font-size: 28px; font-weight: 700; color: var(--teal); margin-bottom: 24px; }
+.book-desc { font-size: 14px; color: var(--gray); line-height: 1.7; text-align: left; margin-bottom: 24px; }
+.book-features { list-style: none; text-align: left; font-size: 13px; color: var(--gray); }
+.book-features li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.book-features li::before { content: '\2192 '; color: var(--teal); }
+
+/* Bundle */
+.bundle-card { background: var(--card); border: 2px solid var(--teal); border-radius: 8px; padding: 48px; margin-top: 48px; text-align: center; }
+.bundle-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; background: var(--teal); color: var(--black); padding: 6px 16px; border-radius: 4px; margin-bottom: 24px; }
+.bundle-title { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+.bundle-price { font-size: 32px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+.bundle-original { font-size: 16px; color: var(--muted); text-decoration: line-through; margin-bottom: 8px; }
+.bundle-savings { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+.bundle-desc { font-size: 16px; color: var(--gray); max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+.btn { display: inline-block; padding: 14px 32px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.2s; cursor: pointer; }
+.btn-primary { background: var(--teal); color: var(--black); border: none; }
+.btn-primary:hover { background: var(--blue); color: var(--black); }
+
+/* Divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.3), transparent); max-width: 800px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 40px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--teal); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .books-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  nav { padding: 20px 24px; }
+  .section { padding: 60px 24px; }
+  .bundle-card { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">ARCDEFT</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="books.html" class="active">Books</a>
+    <a href="tools.html">Tools</a>
+    <a href="share.html">Earn</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Three Books.<br><span>Three Speeds.</span></h1>
+  <p>Same system, different throttle. Pick where you are. Each book stands alone. Together they build the full engine.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">The Playbook Series</div>
+  <h2>Your Speed. Your Rules.</h2>
+  <p class="desc">Every book gives you the exact system, tools, and math. No theory. No fluff. Just the moves that generate revenue.</p>
+
+  <div class="books-row">
+    <div class="book-card">
+      <div class="book-tier">Book One</div>
+      <div class="book-title">Weekend Money</div>
+      <div class="book-sub">5 Hours a Week to Your First $500/Month</div>
+      <div class="book-price">$4.99</div>
+      <div class="book-desc">The starting point. You have a day job and 5 hours on a weekend. This book shows you how to turn that into $500/month using the Content Engine Model — a system that compounds whether you're working or not.</div>
+      <ul class="book-features">
+        <li>Content Engine Model — the core framework</li>
+        <li>Three-Circle Framework for picking your niche</li>
+        <li>AI production stack setup (full tool list)</li>
+        <li>The 52-Minute Production Block</li>
+        <li>Rejection Flywheel — train AI on your voice</li>
+        <li>Build a $29 product in a weekend</li>
+        <li>Gumroad setup in 20 minutes</li>
+        <li>10-minute daily content habit</li>
+        <li>$500/mo in 90 days — the math</li>
+      </ul>
+    </div>
+    <div class="book-card featured">
+      <div class="book-tier">Book Two</div>
+      <div class="book-title">Replace Your Job</div>
+      <div class="book-sub">2-3 Hours a Day to $1K-$5K/Month</div>
+      <div class="book-price">$9.99</div>
+      <div class="book-desc">You've got momentum. Now scale it. This book takes the Content Engine and adds the scaling layer — product ladders, email lists, batch AI production, and the quit-your-job math that tells you exactly when you're ready.</div>
+      <ul class="book-features">
+        <li>Scaling engine — from side hustle to real income</li>
+        <li>Product ladder ($9 to $297)</li>
+        <li>Email list building + automation</li>
+        <li>Batch AI content production at scale</li>
+        <li>Quit-your-job math — know your number</li>
+        <li>Multi-product + dual-platform strategy</li>
+        <li>Full Content Engine Model (advanced)</li>
+        <li>The Rejection Flywheel (advanced)</li>
+        <li>Match your salary in 6 months</li>
+      </ul>
+    </div>
+    <div class="book-card">
+      <div class="book-tier">Book Three</div>
+      <div class="book-title">Unlimited</div>
+      <div class="book-sub">Full Throttle to $10K+ Per Month</div>
+      <div class="book-price">$9.99</div>
+      <div class="book-desc">The full engine. Multi-channel operations, managed ecommerce, affiliate ecosystems, and the systems that let you run a location-independent business that scales without you.</div>
+      <ul class="book-features">
+        <li>Multi-channel ops — 5+ platforms simultaneously</li>
+        <li>Managed eCommerce integration</li>
+        <li>Affiliate ecosystem design</li>
+        <li>5-level commission structures (25/10/5/3/2%)</li>
+        <li>5-agent AI content fleet</li>
+        <li>Product ladder to $297/mo</li>
+        <li>Automation at scale</li>
+        <li>Sell your system as a service</li>
+        <li>Location-independent empire blueprint</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bundle-card">
+    <div class="bundle-badge">Complete Series</div>
+    <div class="bundle-title">All Three Books</div>
+    <div class="bundle-original">$24.97</div>
+    <div class="bundle-price">$19.99</div>
+    <div class="bundle-savings">Save $5 — get the complete system</div>
+    <div class="bundle-desc">Weekend Money + Replace Your Job + Unlimited. The full playbook from first dollar to location-independent empire. One purchase, three speeds, zero fluff.</div>
+    <a href="#" class="btn btn-primary">Get the Bundle</a>
+  </div>
+</div>
+
+<footer>
+  <p>Arcdeft Collective &nbsp;|&nbsp; <a href="https://x.com/arcdeft" target="_blank">@arcdeft</a> &nbsp;|&nbsp; <a href="https://vai.app" target="_blank">vai.app</a></p>
+  <p style="margin-top: 8px;">Creative intelligence for builders who ship product.</p>
+</footer>
+
+</body>
+</html>
