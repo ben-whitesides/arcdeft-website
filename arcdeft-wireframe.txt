@@ -1,0 +1,201 @@
+ARCDEFT.COM — WIREFRAME v1.0
+=====================================
+
+VIEWPORT: 1200px max-width centered
+BACKGROUND: #0A1628 (dark navy)
+TEXT: #F5F5F5 (white), #B0BEC5 (muted)
+ACCENTS: #00A8E8 (blue), #00C9A7 (teal), #FFB800 (gold)
+
+=====================================================================
+SECTION 1: HERO (100vh, centered)
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|                     ARCDEFT COLLECTIVE                            |
+|                     (small, letterspaced, #B0BEC5)               |
+|                                                                   |
+|           Real Systems That Make Real Money.                     |
+|               No Followers Required.                              |
+|           (Bebas Neue, 64px, #F5F5F5)                            |
+|                                                                   |
+|    Arcdeft builds content machines for people who'd rather       |
+|    have a spreadsheet than a selfie ring light. Gym owners,      |
+|    accountants, coaches, parents — anyone with 5 hours a         |
+|    week and zero interest in becoming an influencer.              |
+|           (Inter, 20px, #B0BEC5)                                 |
+|                                                                   |
+|              [  GET THE FREE PLAYBOOK  ]                         |
+|              (Gold button, black text)                            |
+|                                                                   |
+|         Already skeptical? Good. Read how it works ↓             |
+|              (small link, #B0BEC5)                               |
+|                                                                   |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 2: MISSION — "What This Is" (dark bg, subtle border-top)
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|   WHAT ARCDEFT IS (AND ISN'T)          |  KEY STATS              |
+|   (Bebas Neue, Blue #00A8E8)           |                          |
+|                                         |  7 hrs/week             |
+|   Arcdeft is a content business for    |  average time investment |
+|   people who don't want to be content  |                          |
+|   creators.                             |  $1,000                  |
+|                                         |  target in 60 days      |
+|   No motivation speeches. No guru      |                          |
+|   energy. No "just believe in          |  0 followers             |
+|   yourself" filler.                     |  required to start      |
+|                                         |                          |
+|   We build systems. You run them.      |                          |
+|   They make money. That's the pitch.   |                          |
+|                                         |                          |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 3: PRODUCTS — "The Playbooks" (slightly lighter bg)
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|                    THE PLAYBOOKS                                  |
+|              (Bebas Neue, #F5F5F5)                               |
+|                                                                   |
+|  +------------------+ +------------------+ +------------------+  |
+|  |  WEEKEND MONEY   | | REPLACE YOUR JOB | |  FULL THROTTLE   |  |
+|  |  ──────────────  | | ──────────────── | | ──────────────── |  |
+|  |  Blue accent bar | |  Teal accent bar | | Gold accent bar  |  |
+|  |                  | |                  | |                  |  |
+|  |  $4.99           | |  $9.99           | |  $14.99          |  |
+|  |                  | |                  | |                  |  |
+|  | Your first $500  | | Match your       | | Build the machine|  |
+|  | in 5 hrs/week.   | | salary in 12 mo. | | that runs without|  |
+|  | Zero followers.  | | No influencer    | | you. $10K+/mo.   |  |
+|  |                  | | required.        | |                  |  |
+|  | [GET ON KINDLE]  | | [GET ON KINDLE]  | | [GET ON KINDLE]  |  |
+|  +------------------+ +------------------+ +------------------+  |
+|                                                                   |
+|  +------------------------------------------------------------+  |
+|  |  ZERO-FOLLOWER STARTER BUNDLE — $29                        |  |
+|  |  Everything from the books: AI prompts, templates,          |  |
+|  |  calendar, tracker, worksheets. Ready to use today.         |  |
+|  |  [GET THE BUNDLE]                                           |  |
+|  +------------------------------------------------------------+  |
+|                                                                   |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 4: ACCOUNTABILITY — "The System"
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|              THIS ISN'T "BUY AND HOPE"                           |
+|              (Bebas Neue, Gold #FFB800)                          |
+|                                                                   |
+|   Every Arcdeft playbook has built-in checkpoints.               |
+|   You'll know if it's working by week 2. Not month 6.           |
+|                                                                   |
+|   THE MILESTONE LADDER:                                           |
+|                                                                   |
+|   [$1]          Model validated. Someone paid you.               |
+|      ↓                                                            |
+|   [$100]        Product validated. Multiple buyers.              |
+|      ↓                                                            |
+|   [$500]        System validated. Repeatable revenue.            |
+|      ↓                                                            |
+|   [$1,000]      Business validated. It works.                    |
+|      ↓                                                            |
+|   [REPLACEMENT] Income replaced. Engine runs itself.             |
+|                                                                   |
+|   Each milestone has specific diagnostics.                       |
+|   Stuck? We tell you exactly what's broken and how to fix it.    |
+|                                                                   |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 5: BUILDER PROGRAM — "$197/mo" (darker bg, gold border)
+=====================================================================
+
++-------------------------------------------------------------------+
+|  ┌─────────────────────────────────────────────────────────────┐  |
+|  │                                                             │  |
+|  │              THE BUILDER PROGRAM                            │  |
+|  │              (Bebas Neue, Gold)                             │  |
+|  │                                                             │  |
+|  │  This is not a course. Courses give you information.        │  |
+|  │  This is a workshop. Workshops give you results.            │  |
+|  │                                                             │  |
+|  │  • Weekly live builds — real businesses, built in real time │  |
+|  │  • Private community — pre-launch to $5K+/month            │  |
+|  │  • Monthly teardowns — what works, what doesn't, why       │  |
+|  │  • Direct feedback on YOUR work                            │  |
+|  │                                                             │  |
+|  │              $197/month                                     │  |
+|  │              [APPLY TO JOIN]                                │  |
+|  │                                                             │  |
+|  └─────────────────────────────────────────────────────────────┘  |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 6: SOCIAL PROOF — Case Studies
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|              PEOPLE WHO BUILT THE ENGINE                          |
+|              (Bebas Neue, Teal)                                  |
+|                                                                   |
+|  "James" — HS Basketball Coach, Ohio                             |
+|  $0 → $1,400/mo in 6 months. Notion template pack for coaches.  |
+|  6 hrs/week. Never posted on social media before.                |
+|                                                                   |
+|  "Sarah" — Accountant, Remote                                    |
+|  $0 → $800/mo in 4 months. Tax prep checklists for freelancers. |
+|  Lunch breaks and Saturday mornings.                              |
+|                                                                   |
+|  "Marcus" — Gym Owner, Denver                                    |
+|  $0 → $2,100/mo in 8 months. Programming templates for trainers.|
+|  Already had the knowledge. Arcdeft gave him the system.          |
+|                                                                   |
+|  (labeled as composite case studies from the books)              |
+|                                                                   |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 7: EMAIL CAPTURE — "The Arcdeft Dispatch"
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|              THE ARCDEFT DISPATCH                                 |
+|              (Bebas Neue, Blue)                                  |
+|                                                                   |
+|   Weekly breakdown of AI tools, workflows, and production        |
+|   strategies. Short emails. Actionable tips. Zero fluff.         |
+|                                                                   |
+|   +-------------------------------------------+                  |
+|   |  [your@email.com          ] [SUBSCRIBE]   |                  |
+|   +-------------------------------------------+                  |
+|                                                                   |
+|   No spam. Unsubscribe anytime. We respect your inbox            |
+|   more than we respect motivational posters.                      |
+|                                                                   |
++-------------------------------------------------------------------+
+
+=====================================================================
+SECTION 8: FOOTER
+=====================================================================
+
++-------------------------------------------------------------------+
+|                                                                   |
+|   ARCDEFT COLLECTIVE                                              |
+|   @arcdeft · arcdeft.com                                         |
+|                                                                   |
+|   Real systems beat viral moments.                               |
+|   2026. All rights reserved.                                      |
+|                                                                   |
++-------------------------------------------------------------------+
