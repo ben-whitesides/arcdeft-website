@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcdeft Collective — The Micro-Influencer Promotion Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0A1628;
+  --navy-light: #0E1D35;
+  --navy-card: #111E33;
+  --white: #F5F5F5;
+  --muted: #B0BEC5;
+  --blue: #00A8E8;
+  --teal: #00C9A7;
+  --gold: #FFB800;
+  --max-width: 1100px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--navy);
+  color: var(--muted);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+a { color: var(--blue); text-decoration: none; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+.fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
+.fade-in-delay-1 { animation-delay: 0.15s; }
+.fade-in-delay-2 { animation-delay: 0.3s; }
+.fade-in-delay-3 { animation-delay: 0.45s; }
+
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(0, 168, 232, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-inner { max-width: 800px; position: relative; z-index: 1; }
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.hero h1 { font-size: clamp(44px, 7vw, 76px); margin-bottom: 24px; letter-spacing: 0.02em; }
+
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.hero-tagline {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: 0.06em;
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 100px 24px; border-top: 1px solid rgba(176, 190, 197, 0.06); }
+
+.section-title {
+  font-size: clamp(36px, 5vw, 56px);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+
+/* ===== TWO-SIDED GRID ===== */
+.two-sided {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.side-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  padding: 0;
+  position: relative;
+}
+
+.side-accent { height: 4px; width: 100%; }
+.side-accent.blue { background: var(--blue); }
+.side-accent.gold { background: var(--gold); }
+
+.side-body { padding: 40px 32px; }
+
+.side-card h3 { font-size: 32px; margin-bottom: 8px; }
+
+.side-card .who {
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.side-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-card li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.side-card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+}
+
+.side-card.gold-side li::before { color: var(--gold); }
+
+/* ===== TIERS ===== */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tier-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(176, 190, 197, 0.12);
+}
+
+.tier-card.featured { border-color: var(--blue); }
+
+.tier-accent { height: 4px; width: 100%; }
+.tier-accent.muted-accent { background: var(--muted); opacity: 0.3; }
+.tier-accent.blue { background: var(--blue); }
+.tier-accent.gold { background: var(--gold); }
+
+.tier-body { padding: 36px 28px; }
+
+.tier-name { font-size: 28px; margin-bottom: 4px; }
+
+.tier-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.tier-card.featured .tier-price { color: var(--gold); }
+
+.tier-period {
+  font-size: 13px;
+  color: var(--muted);
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.tier-desc {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.tier-features { list-style: none; padding: 0; }
+
+.tier-features li {
+  padding: 6px 0;
+  font-size: 14px;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.tier-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.tier-divider {
+  height: 1px;
+  background: rgba(176, 190, 197, 0.08);
+  margin: 16px 0;
+}
+
+.tier-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.step {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  position: relative;
+}
+
+.step-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: var(--blue);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.step h4 { font-size: 22px; margin-bottom: 10px; }
+
+.step p { font-size: 14px; line-height: 1.6; }
+
+/* ===== KPI SECTION ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.kpi-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.kpi-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.kpi-label { font-size: 14px; color: var(--muted); }
+
+/* ===== CREATOR SECTION ===== */
+.creator-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.creator-type {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.creator-type .emoji { font-size: 36px; margin-bottom: 12px; }
+.creator-type h4 { font-size: 20px; margin-bottom: 8px; }
+.creator-type p { font-size: 13px; line-height: 1.5; }
+
+/* ===== VERTICALS ===== */
+.vertical-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.vertical-item {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vertical-item .v-icon { font-size: 28px; flex-shrink: 0; }
+.vertical-item h4 { font-size: 18px; margin-bottom: 2px; }
+.vertical-item p { font-size: 13px; }
+
+/* ===== REVENUE ===== */
+.revenue-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+.revenue-table th, .revenue-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(176, 190, 197, 0.08);
+  font-size: 15px;
+}
+
+.revenue-table th {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.revenue-table td { color: var(--muted); }
+.revenue-table .highlight { color: var(--gold); font-weight: 700; }
+
+/* ===== FLYWHEEL ===== */
+.flywheel {
+  background: var(--navy-card);
+  border: 1px solid rgba(176, 190, 197, 0.06);
+  padding: 48px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.flywheel h3 { font-size: 36px; margin-bottom: 32px; }
+
+.flywheel-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fw-step {
+  background: var(--navy);
+  border: 1px solid rgba(0, 168, 232, 0.2);
+  padding: 20px 24px;
+  min-width: 180px;
+  text-align: center;
+}
+
+.fw-step h4 { font-size: 18px; margin-bottom: 6px; }
+.fw-step p { font-size: 12px; }
+
+.fw-arrow {
+  font-size: 24px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ===== QUOTE ===== */
+.quote-block {
+  background: linear-gradient(135deg, rgba(0, 168, 232, 0.06), rgba(0, 201, 167, 0.06));
+  border-left: 4px solid var(--blue);
+  padding: 40px;
+  margin: 60px 0;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--white);
+}
+
+.quote-attr {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center;
+  padding: 120px 24px;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+}
+
+.cta-section h2 { font-size: clamp(40px, 6vw, 64px); margin-bottom: 20px; }
+
+.cta-section p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: #0A1628;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover { background: #e6a600; transform: translateY(-2px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .two-sided, .tier-grid, .kpi-grid, .steps, .creator-types, .vertical-grid { grid-template-columns: 1fr; }
+  .flywheel-steps { flex-direction: column; }
+  .fw-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner fade-in">
+    <div class="hero-label">Arcdeft Collective</div>
+    <h1>The Micro-Influencer<br>Promotion Engine</h1>
+    <p class="hero-sub">AI-powered content creation meets local influencer matchmaking. We help businesses grow by connecting them with real people who have real audiences.</p>
+    <div class="hero-tagline">Content × Creators × Commerce</div>
+  </div>
+</section>
+
+<!-- THE GAP -->
+<section>
+  <div class="container">
+    <h2 class="section-title fade-in">The Market Gap</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Big influencer platforms cost $1,000+/mo and target enterprise brands. Local businesses have zero options for micro-influencer promotion at an accessible price point.</p>
+
+    <div class="kpi-grid fade-in fade-in-delay-2">
+      <div class="kpi-card">
+        <div class="kpi-number">60%</div>
+        <div class="kpi-label">Higher engagement rates from micro-influencers vs macro-influencers</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">$0</div>
+        <div class="kpi-label">Options for local businesses under $1,000/mo for influencer promotion</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">90%+</div>
+        <div class="kpi-label">Gross margin on AI-powered content delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO SIDES -->
+<section style="background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);">
+  <div class="container">
+    <h2 class="section-title fade-in">Two Sides. One Engine.</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Arcdeft connects businesses who need promotion with creators who have engaged local audiences.</p>
+
+    <div class="two-sided fade-in fade-in-delay-2">
+      <div class="side-card">
+        <div class="side-accent blue"></div>
+        <div class="side-body">
+          <div class="who">Side A — Businesses</div>
+          <h3>Get Promoted</h3>
+          <ul>
+            <li>AI-created social media content — posts, reels, stories, carousels</li>
+            <li>Matched with local micro-influencers who authentically promote their business</li>
+            <li>Monthly performance reporting proving ROI</li>
+            <li>Starting at $97/mo — fraction of any agency or in-house hire</li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-card gold-side">
+        <div class="side-accent gold"></div>
+        <div class="side-body">
+          <div class="who" style="color: var(--gold);">Side B — Creators</div>
+          <h3>Get Paid</h3>
+          <ul>
+            <li>Athletes, moms, trainers, lifestyle creators — 1K to 50K followers</li>
+            <li>Paid brand partnerships with local businesses ($25–$200/post)</li>
+            <li>No huge following required — engaged local audience is what brands want</li>
+            <li>Free to join. Arcdeft handles matchmaking, briefing, and payment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATOR TYPES -->
+<section>
+  <div class="container">
+    <h2 class="section-title fade-in">Who Are Arcdeft Creators?</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Not celebrities. Real people with real audiences who trust them. Micro-influencers across every vertical.</p>
+
+    <div class="creator-types fade-in fade-in-delay-2">
+      <div class="creator-type">
+        <div class="emoji">🏋️</div>
+        <h4>Athletes</h4>
+        <p>High school, college, amateur, semi-pro. 1K–20K followers in their community.</p>
+      </div>
+      <div class="creator-type">
+        <div class="emoji">👩‍👧‍👦</div>
+        <h4>Moms & Parents</h4>
+        <p>Fitness moms, family wellness, meal prep, active lifestyle. 2K–30K engaged followers.</p>
+      </div>
+      <div class="creator-type">
+        <div class="emoji">💪</div>
+        <h4>Fitness Pros</h4>
+        <p>Personal trainers, yoga instructors, coaches with their own following and credibility.</p>
+      </div>
+      <div class="creator-type">
+        <div class="emoji">🧘</div>
+        <h4>Wellness & Lifestyle</h4>
+        <p>Nutrition, recovery, mindfulness, outdoor adventure. Authentic voices in health.</p>
+      </div>
+      <div class="creator-type">
+        <div class="emoji">💃</div>
+        <h4>Dance & Arts</h4>
+        <p>Dance studios, performers, martial artists. Visual content that stops the scroll.</p>
+      </div>
+      <div class="creator-type">
+        <div class="emoji">📱</div>
+        <h4>Local Voices</h4>
+        <p>Anyone with an engaged local audience. The neighborhood authority people trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE TIERS -->
+<section style="background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);">
+  <div class="container">
+    <h2 class="section-title fade-in">Service Tiers</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">AI-created content + micro-influencer promotion. Three tiers built for businesses that want to grow.</p>
+
+    <div class="tier-grid fade-in fade-in-delay-2">
+      <!-- SPARK -->
+      <div class="tier-card">
+        <div class="tier-accent muted-accent"></div>
+        <div class="tier-body">
+          <div class="tier-name">Spark</div>
+          <div class="tier-price">$97</div>
+          <div class="tier-period">per month</div>
+          <div class="tier-desc">"Professional content, no effort"</div>
+          <ul class="tier-features">
+            <li>12 posts/month (3/week)</li>
+            <li>2 platforms (client's choice)</li>
+            <li>Branded graphics & captions</li>
+            <li>Hashtag strategy</li>
+            <li>Monthly content calendar</li>
+            <li>Monthly performance report</li>
+            <li>1 revision round</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IGNITE -->
+      <div class="tier-card featured">
+        <div class="tier-accent blue"></div>
+        <div class="tier-body">
+          <div class="tier-name">Ignite</div>
+          <div class="tier-price" style="color: var(--blue);">$197</div>
+          <div class="tier-period">per month</div>
+          <div class="tier-desc">"Content + creators promoting you"</div>
+          <ul class="tier-features">
+            <li>20 posts/month (5/week)</li>
+            <li>3 platforms</li>
+            <li>8 Stories + 4 Reels per month</li>
+            <li>Educational carousels & trending content</li>
+            <li>Bi-weekly content calendar</li>
+          </ul>
+          <div class="tier-divider"></div>
+          <div class="tier-label">Influencer Promotion</div>
+          <ul class="tier-features">
+            <li>1–2 matched local micro-influencers</li>
+            <li>Creator outreach, briefing & coordination</li>
+            <li>Monthly report + Loom walkthrough</li>
+            <li>2 revision rounds</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BLAZE -->
+      <div class="tier-card">
+        <div class="tier-accent gold"></div>
+        <div class="tier-body">
+          <div class="tier-name">Blaze</div>
+          <div class="tier-price" style="color: var(--gold);">$397</div>
+          <div class="tier-period">per month</div>
+          <div class="tier-desc">"Full promotion engine"</div>
+          <ul class="tier-features">
+            <li>30 posts/month (daily)</li>
+            <li>4 platforms</li>
+            <li>12 Stories + 8 Reels per month</li>
+            <li>Ad creative included</li>
+            <li>Content shoot guide</li>
+            <li>Competitor monitoring</li>
+          </ul>
+          <div class="tier-divider"></div>
+          <div class="tier-label">Full Influencer Engine</div>
+          <ul class="tier-features">
+            <li>3–5 matched local micro-influencers</li>
+            <li>Managed creator relationships & payment</li>
+            <li>Monthly strategy call (30 min)</li>
+            <li>Weekly check-in</li>
+            <li>ROI report with business impact</li>
+            <li>3 revision rounds, 24hr priority</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <h2 class="section-title fade-in">How It Works</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">From signup to first post in 5 days. First creator content in 14 days.</p>
+
+    <div class="steps fade-in fade-in-delay-2">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h4>Onboard</h4>
+        <p>10-minute intake form. Brand kit, photos, audience, goals. We handle the rest.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h4>Create</h4>
+        <p>AI generates branded content — posts, carousels, reels, captions. Human QA before delivery.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h4>Match</h4>
+        <p>We pair you with local micro-influencers by location, niche, and audience overlap.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <h4>Grow</h4>
+        <p>Content goes live. Creators promote you. Monthly reports prove the value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FLYWHEEL -->
+<section style="background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);">
+  <div class="container">
+    <div class="flywheel fade-in">
+      <h3>The Arcdeft Flywheel</h3>
+      <div class="flywheel-steps">
+        <div class="fw-step">
+          <h4>Create Content</h4>
+          <p>AI-powered, branded to each business</p>
+        </div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-step">
+          <h4>Match Creators</h4>
+          <p>Local influencers promote businesses</p>
+        </div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-step">
+          <h4>Deliver Results</h4>
+          <p>Track reach, engagement, leads</p>
+        </div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-step">
+          <h4>Attract More</h4>
+          <p>Results attract businesses + creators</p>
+        </div>
+      </div>
+      <p style="margin-top: 32px; font-size: 15px; color: var(--teal);">Creators attract businesses. Businesses attract creators. Network effects compound.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY KPI -->
+<section>
+  <div class="container">
+    <h2 class="section-title fade-in">What Clients See Every Month</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Simple, visual reporting that proves the value. No jargon. Just numbers that matter.</p>
+
+    <div class="kpi-grid fade-in fade-in-delay-2">
+      <div class="kpi-card">
+        <div class="kpi-number">45.2K</div>
+        <div class="kpi-label">Total Reach — people who saw their brand</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">4.8%</div>
+        <div class="kpi-label">Engagement Rate — 3× industry average</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">+127</div>
+        <div class="kpi-label">New Followers — organic growth from content + creators</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">12.4K</div>
+        <div class="kpi-label">Creator Reach — additional audience from matched influencers</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">8</div>
+        <div class="kpi-label">Promo Code Redemptions — trackable leads from creators</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">30:1</div>
+        <div class="kpi-label">Estimated ROI — from $397/mo Blaze investment</div>
+      </div>
+    </div>
+
+    <div class="quote-block fade-in fade-in-delay-3">
+      "Last month we generated 47 leads for $8 each. Your free class offer outperformed everything — we're doubling down on it next month with fresh video content from your matched creators."
+      <span class="quote-attr">— Sample monthly report excerpt</span>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section style="background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);">
+  <div class="container">
+    <h2 class="section-title fade-in">Multi-Vertical Platform</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Fitness is the launch vertical. The same engine scales across every local business category.</p>
+
+    <div class="vertical-grid fade-in fade-in-delay-2">
+      <div class="vertical-item">
+        <div class="v-icon">🏋️</div>
+        <div><h4>Fitness & Training</h4><p>Gyms, studios, trainers, CrossFit</p></div>
+      </div>
+      <div class="vertical-item">
+        <div class="v-icon">🧖</div>
+        <div><h4>Wellness & Recovery</h4><p>PT, chiro, nutrition, cryotherapy</p></div>
+      </div>
+      <div class="vertical-item">
+        <div class="v-icon">💃</div>
+        <div><h4>Dance & Arts</h4><p>Dance studios, performing arts, cheer</p></div>
+      </div>
+      <div class="vertical-item">
+        <div class="v-icon">🍽️</div>
+        <div><h4>Food & Restaurants</h4><p>Local restaurants, cafes, meal prep</p></div>
+      </div>
+      <div class="vertical-item">
+        <div class="v-icon">💄</div>
+        <div><h4>Beauty & Medspa</h4><p>Salons, medspas, skincare, aesthetics</p></div>
+      </div>
+      <div class="vertical-item">
+        <div class="v-icon">🏠</div>
+        <div><h4>Local Services</h4><p>Real estate, home services, retail</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section>
+  <div class="container">
+    <h2 class="section-title fade-in">Revenue Trajectory</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Software-like margins on service revenue. AI creates the content. The network does the distribution.</p>
+
+    <table class="revenue-table fade-in fade-in-delay-2">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Clients</th>
+          <th>Creators</th>
+          <th>MRR</th>
+          <th>Net Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Month 1</td><td>5</td><td>25</td><td>$735</td><td>$550</td></tr>
+        <tr><td>Month 3</td><td>25</td><td>75</td><td>$3,675</td><td>$2,500</td></tr>
+        <tr><td>Month 6</td><td>75</td><td>200</td><td>$11,025</td><td class="highlight">$7,500</td></tr>
+        <tr><td>Month 12</td><td>200</td><td>500+</td><td>$29,400</td><td class="highlight">$20,000+</td></tr>
+      </tbody>
+    </table>
+
+    <div class="kpi-grid fade-in fade-in-delay-3">
+      <div class="kpi-card">
+        <div class="kpi-number">$2</div>
+        <div class="kpi-label">COGS per client for content creation (AI-powered)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">98%</div>
+        <div class="kpi-label">Gross margin on Spark tier (content-only)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number">$0</div>
+        <div class="kpi-label">Cost for creators to join the network</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE -->
+<section style="background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);">
+  <div class="container">
+    <h2 class="section-title fade-in">Why Nobody Else Is Doing This</h2>
+
+    <div class="quote-block fade-in fade-in-delay-1" style="border-left-color: var(--gold);">
+      Big influencer platforms (AspireIQ, Grin, CreatorIQ) charge $1,000+/mo and focus on enterprise brands with 100K+ follower creators.
+      <br><br>
+      Traditional agencies charge $1,000–$10,000/mo for social media management alone — no influencer matchmaking.
+      <br><br>
+      DIY tools (AdCreative.ai, Canva) require the business owner to do the work themselves.
+      <br><br>
+      <strong style="color: var(--gold);">Arcdeft is the only platform combining AI content creation + local micro-influencer matchmaking at $97–$397/mo.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2>Ready to Build</h2>
+    <p>The infrastructure is proven. The market gap is confirmed. The creator network is ready to seed. Fitness is the first vertical — every local business category follows.</p>
+    <a class="btn-gold" href="https://arcdeft.co">arcdeft.co</a>
+  </div>
+</section>
+
+</body>
+</html>
